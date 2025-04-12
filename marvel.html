@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Marvel Universe - Vibe Nest</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.8em;
+      color: #e23636;
+    }
+    .section {
+      margin: 40px 0;
+    }
+    .hero-grid, .comic-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+      padding: 10px;
+    }
+    .card {
+      background-color: #1a1a1a;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255,0,0,0.5);
+    }
+    .card img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .card h3 {
+      margin: 10px 0 5px;
+      font-size: 1.3em;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 10px;
+    }
+    a.button {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background: #e23636;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>🦸‍♂️ Welcome to the Marvel Universe</h1>
+
+  <div class="section">
+    <h2>🌟 Marvel Heroes</h2>
+    <div class="hero-grid">
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/e/e1/Iron_Man_bleeding_edge.jpg" alt="Iron Man">
+        <h3>Iron Man</h3>
+        <p>Genius billionaire Tony Stark suits up to save the world with his tech and brains.</p>
+      </div>
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/9/9d/Spider-Man_no_more.jpg" alt="Spider-Man">
+        <h3>Spider-Man</h3>
+        <p>Peter Parker fights crime while juggling high school, family, and friends.</p>
+      </div>
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/1/1e/CaptainAmerica109.jpg" alt="Captain America">
+        <h3>Captain America</h3>
+        <p>Steve Rogers, the first Avenger, a symbol of hope, strength, and justice.</p>
+      </div>
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/8/88/Black_Widow_poster.jpg" alt="Black Widow">
+        <h3>Black Widow</h3>
+        <p>Natasha Romanoff is a master spy and fierce warrior with a mysterious past.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 Read Marvel Comics</h2>
+    <div class="comic-list">
+      <div class="card">
+        <h3><a href="https://readallcomics.com/category/marvel/" target="_blank">Marvel Comic Collection</a></h3>
+        <p>Explore free Marvel comics online. Tons of epic superhero adventures await!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🎬 Watch Trailers</h2>
+    <iframe src="https://www.youtube.com/embed/QdPX9CijVpw" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/TcMBFSGVi1c" allowfullscreen></iframe>
+  </div>
+
+  <div class="section">
+    <h2>🧠 Take the Marvel Quiz</h2>
+    <a href="marvel_quiz.html" class="button">Start Quiz</a>
+  </div>
+</body>
+</html>
