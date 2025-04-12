@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Marvel Quiz - Vibe Nest</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #101010;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #ff3c3c;
+    }
+    .quiz-box {
+      max-width: 700px;
+      margin: auto;
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .question {
+      font-size: 1.3em;
+      margin: 20px 0;
+    }
+    .options button {
+      background: #292929;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .options button:hover {
+      background: #ff3c3c;
+    }
+    #result {
+      font-size: 1.5em;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🦸 Marvel Quiz</h1>
+  <div class="quiz-box">
+    <div id="quiz-container"></div>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const quizData = [
+      { question: "Who is Iron Man?", options: ["Steve Rogers", "Tony Stark", "Bruce Banner", "Clint Barton"], answer: "Tony Stark" },
+      { question: "What is Captain America's shield made of?", options: ["Adamantium", "Vibranium", "Titanium", "Steel"], answer: "Vibranium" },
+      { question: "Who is Thor’s brother?", options: ["Hela", "Loki", "Odin", "Fandral"], answer: "Loki" },
+      { question: "Which Infinity Stone is in Vision's head?", options: ["Mind", "Time", "Reality", "Power"], answer: "Mind" },
+      { question: "Who is the Winter Soldier?", options: ["Sam Wilson", "Bucky Barnes", "Peter Parker", "Scott Lang"], answer: "Bucky Barnes" },
+      { question: "Who is the Black Panther?", options: ["T'Chaka", "Killmonger", "T'Challa", "M'Baku"], answer: "T'Challa" },
+      { question: "Which Avenger is from Wakanda?", options: ["Hawkeye", "Iron Man", "Black Panther", "Vision"], answer: "Black Panther" },
+      { question: "Who is Peter Parker’s best friend?", options: ["Harry Osborn", "Ned Leeds", "Flash Thompson", "MJ"], answer: "Ned Leeds" },
+      { question: "What is Hulk’s real name?", options: ["Bruce Wayne", "Bruce Banner", "Clark Kent", "Tony Stark"], answer: "Bruce Banner" },
+      { question: "Which character is known as the Sorcerer Supreme?", options: ["Loki", "Wong", "Doctor Strange", "Thanos"], answer: "Doctor Strange" },
+      { question: "What metal is used to build Ultron?", options: ["Titanium", "Adamantium", "Vibranium", "Copper"], answer: "Vibranium" },
+      { question: "Who is the director of S.H.I.E.L.D.?", options: ["Phil Coulson", "Nick Fury", "Maria Hill", "Tony Stark"], answer: "Nick Fury" },
+      { question: "Which movie started the MCU?", options: ["Iron Man", "Hulk", "Captain America", "Thor"], answer: "Iron Man" },
+      { question: "What’s Spider-Man’s aunt’s name?", options: ["Aunt June", "Aunt May", "Aunt Liz", "Aunt Mary"], answer: "Aunt May" },
+      { question: "Who created the first Iron Man suit with Tony?", options: ["Obadiah", "Rhodey", "Yinsen", "Pepper"], answer: "Yinsen" },
+      { question: "Which Guardian is a tree?", options: ["Rocket", "Star-Lord", "Groot", "Drax"], answer: "Groot" },
+      { question: "What color is the Reality Stone?", options: ["Red", "Blue", "Yellow", "Purple"], answer: "Red" },
+      { question: "Who snapped Thanos away?", options: ["Hulk", "Iron Man", "Captain Marvel", "Thor"], answer: "Iron Man" },
+      { question: "What’s the name of Thor’s hammer?", options: ["Mjolnir", "Stormbreaker", "Vanir", "Ragnarok"], answer: "Mjolnir" },
+      { question: "What planet is Thanos from?", options: ["Xandar", "Asgard", "Titan", "Vormir"], answer: "Titan" },
+    ];
+
+    let currentQ = 0;
+    let score = 0;
+
+    function loadQuestion() {
+      const container = document.getElementById("quiz-container");
+      container.innerHTML = `
+        <div class="question">${quizData[currentQ].question}</div>
+        <div class="options">
+          ${quizData[currentQ].options.map(opt =>
+            `<button onclick="selectAnswer('${opt}')">${opt}</button>`
+          ).join("")}
+        </div>
+      `;
+    }
+
+    function selectAnswer(selected) {
+      if (selected === quizData[currentQ].answer) score++;
+      currentQ++;
+      if (currentQ < quizData.length) {
+        loadQuestion();
+      } else {
+        document.getElementById("quiz-container").innerHTML = "";
+        document.getElementById("result").innerText = `🎉 You scored ${score} out of ${quizData.length}!`;
+      }
+    }
+
+    loadQuestion();
+  </script>
+</body>
+</html>
