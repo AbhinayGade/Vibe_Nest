@@ -1,0 +1,79 @@
+<!-- mood.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mood Board | Vibe Nest</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+    }
+    .mood-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    textarea {
+      resize: none;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px;
+      background: #ff6f61;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .moods {
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    .mood-post {
+      background: white;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 Mood Board</h1>
+  <div class="mood-form">
+    <textarea id="moodInput" placeholder="How are you feeling today? 😄😞🤔" rows="3"></textarea>
+    <button onclick="postMood()">Post Mood</button>
+  </div>
+
+  <div class="moods" id="moodList">
+    <!-- Mood posts will appear here -->
+  </div>
+
+  <script>
+    const moodList = document.getElementById("moodList");
+    function postMood() {
+      const moodText = document.getElementById("moodInput").value;
+      if (moodText.trim() === "") return;
+      const post = document.createElement("div");
+      post.className = "mood-post";
+      post.textContent = moodText;
+      moodList.prepend(post);
+      document.getElementById("moodInput").value = "";
+    }
+  </script>
+</body>
+</html>
