@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vibe Nest | Mini Tools Corner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🧰 Mini Tools Corner</h1>
+    <p>Your personal vibe toolkit</p>
+  </header>
+
+  <main>
+    <section class="tool">
+      <h2>🧠 Mood Tracker</h2>
+      <select id="mood">
+        <option value="🙂">Happy</option>
+        <option value="😐">Neutral</option>
+        <option value="😔">Sad</option>
+        <option value="😤">Stressed</option>
+        <option value="😎">Chill</option>
+      </select>
+      <button onclick="saveMood()">Save</button>
+      <p id="savedMood"></p>
+    </section>
+
+    <section class="tool">
+      <h2>📝 To-Do List</h2>
+      <input type="text" id="todoInput" placeholder="Add a task" />
+      <button onclick="addTodo()">Add</button>
+      <ul id="todoList"></ul>
+    </section>
+
+    <section class="tool">
+      <h2>⏱️ Timer</h2>
+      <input type="number" id="timerInput" placeholder="Seconds" />
+      <button onclick="startTimer()">Start</button>
+      <p id="timerDisplay">00:00</p>
+    </section>
+  </main>
+
+  <script>
+    function saveMood() {
+      const mood = document.getElementById("mood").value;
+      document.getElementById("savedMood").innerText = "Today's mood: " + mood;
+    }
+
+    function addTodo() {
+      const input = document.getElementById("todoInput");
+      const task = input.value.trim();
+      if (task) {
+        const li = document.createElement("li");
+        li.textContent = task;
+        li.onclick = () => li.remove();
+        document.getElementById("todoList").appendChild(li);
+        input.value = "";
+      }
+    }
+
+    function startTimer() {
+      let time = parseInt(document.getElementById("timerInput").value);
+      const display = document.getElementById("timerDisplay");
+      if (isNaN(time) || time <= 0) return;
+      const interval = setInterval(() => {
+        const minutes = String(Math.floor(time / 60)).padStart(2, "0");
+        const seconds = String(time % 60).padStart(2, "0");
+        display.innerText = `${minutes}:${seconds}`;
+        if (--time < 0) clearInterval(interval);
+      }, 1000);
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .tool {
+      background: rgba(255,255,255,0.08);
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 500px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    input, select {
+      padding: 10px;
+      margin-top: 10px;
+      width: 80%;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 8px;
+      border: none;
+      background-color: #6c5ce7;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #341f97;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 5px 0;
+      background: #dfe6e9;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</body>
+</html>

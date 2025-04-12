@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vibe Nest | Polls</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>📊 Vibe Polls</h1>
+    <p>Vote on fun topics and see how others vibe!</p>
+  </header>
+
+  <main>
+    <section class="poll">
+      <h2>🎶 What's your go-to vibe music?</h2>
+      <button onclick="vote('pop')">Pop</button>
+      <button onclick="vote('lofi')">Lo-fi</button>
+      <button onclick="vote('rock')">Rock</button>
+      <button onclick="vote('kpop')">K-pop</button>
+      <p id="pollResult"></p>
+    </section>
+
+    <section class="poll">
+      <h2>🎮 Best chill activity?</h2>
+      <button onclick="vote2('gaming')">Gaming</button>
+      <button onclick="vote2('reading')">Reading</button>
+      <button onclick="vote2('chatting')">Chatting</button>
+      <button onclick="vote2('watching')">Watching Anime</button>
+      <p id="pollResult2"></p>
+    </section>
+  </main>
+
+  <script>
+    function vote(option) {
+      document.getElementById("pollResult").textContent = `You voted for: ${option}`;
+    }
+
+    function vote2(option) {
+      document.getElementById("pollResult2").textContent = `You chose: ${option}`;
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .poll {
+      background: #ffffff22;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+    }
+
+    .poll button {
+      margin: 8px;
+      padding: 10px 20px;
+      border: none;
+      background: #5e60ce;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .poll button:hover {
+      background: #3f41a6;
+    }
+  </style>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vibe Nest | Your Profile</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>🌟 Your Vibe Profile</h1>
+    <p>Customize your vibe!</p>
+  </header>
+
+  <main>
+    <div class="profile-box">
+      <label for="name">Display Name:</label><br>
+      <input type="text" id="name" placeholder="Enter your name"/><br><br>
+
+      <label for="vibeColor">Favorite Color:</label><br>
+      <input type="color" id="vibeColor"/><br><br>
+
+      <label for="bio">Your Bio:</label><br>
+      <textarea id="bio" rows="4" placeholder="Tell us about yourself..."></textarea><br><br>
+
+      <button onclick="saveProfile()">Save Vibe</button>
+      <p id="saveMsg" style="display:none; margin-top: 10px;">Your vibe has been saved! ✨</p>
+    </div>
+  </main>
+
+  <script>
+    function saveProfile() {
+      document.getElementById("saveMsg").style.display = "block";
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .profile-box {
+      margin: auto;
+      width: 80%;
+      max-width: 400px;
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background: #6c5ce7;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #4834d4;
+    }
+  </style>
+</body>
+</html>

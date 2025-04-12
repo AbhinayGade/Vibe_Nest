@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vibe Nest | Suggestions</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>💡 Vibe Suggestions</h1>
+    <p>Got ideas to make Vibe Nest even cooler? Drop them here!</p>
+  </header>
+
+  <main>
+    <form id="suggestionForm">
+      <textarea id="suggestionInput" rows="6" placeholder="Type your idea or feedback here..."></textarea>
+      <br>
+      <button type="submit">Submit Suggestion</button>
+      <p id="thanksMsg" style="display:none; margin-top: 10px;">Thanks for your vibe idea! 🌟</p>
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById("suggestionForm");
+    const input = document.getElementById("suggestionInput");
+    const msg = document.getElementById("thanksMsg");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (input.value.trim() !== "") {
+        msg.style.display = "block";
+        input.value = "";
+      }
+    });
+  </script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px;
+      text-align: center;
+    }
+
+    textarea {
+      width: 80%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      background: #00b894;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #019875;
+    }
+  </style>
+</body>
+</html>
