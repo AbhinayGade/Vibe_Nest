@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vibe Chat</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+</head>
+<body>
+  <header>
+    <h1>💬 Vibe Chat</h1>
+    <p>Real-time group chat to chill with your crew</p>
+  </header>
+
+  <main>
+    <div id="messages" style="max-height: 300px; overflow-y: auto; margin-bottom: 10px;"></div>
+    <input type="text" id="username" placeholder="Your name" />
+    <input type="text" id="message" placeholder="Type your message..." />
+    <button onclick="sendMessage()">Send</button>
+  </main>
+
+  <script>
+    // Firebase config (replace with your own credentials)
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      databaseURL: "YOUR_DATABASE_URL",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    function sendMessage() {
+      const username = document.getElementById("username").value.trim();
+      const message = document.getElementById("message").value.trim();
+      if (!username || !message) return;
+
+      db.ref("messages").push({
+        user: username,
+        text: message,
+        time: Date.now()
+      });
+
+      document.getElementById("message").value = "";
+    }
+
+    db.ref("messages").on("child_added", (snapshot) => {
+      const msg = snapshot.val();
+      const messageElement = document.createElement("p");
+      messageElement.innerHTML = `<strong>${msg.user}</strong>: ${msg.text}`;
+      document.getElementById("messages").appendChild(messageElement);
+    });
+  </script>
+</body>
+</html>

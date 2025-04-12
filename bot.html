@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Vibe Bud</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🤖 My Vibe Bud</h1>
+    <p>Your customizable AI chat buddy</p>
+  </header>
+
+  <main>
+    <div>
+      <textarea id="userInput" rows="4" placeholder="Talk to your Vibe Bud..."></textarea><br>
+      <button onclick="sendMessage()">Send</button>
+    </div>
+    <div id="chatBox"></div>
+  </main>
+
+  <script>
+    const chatBox = document.getElementById('chatBox');
+
+    function sendMessage() {
+      const input = document.getElementById('userInput').value;
+      if (!input.trim()) return;
+      chatBox.innerHTML += `<p><strong>You:</strong> ${input}</p>`;
+
+      const responses = [
+        "That's awesome! 😎",
+        "Tell me more!",
+        "I totally get that.",
+        "Want to hear a joke?",
+        "Let’s vibe together 💫"
+      ];
+
+      const botReply = responses[Math.floor(Math.random() * responses.length)];
+      chatBox.innerHTML += `<p><strong>Vibe Bud:</strong> ${botReply}</p>`;
+
+      document.getElementById('userInput').value = '';
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  </script>
+</body>
+</html>
