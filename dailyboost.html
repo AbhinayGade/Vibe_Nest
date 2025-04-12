@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vibe Nest | Daily Brain Boost</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>🧠 Daily Brain Boost</h1>
+    <p>Something cool to kickstart your brain today!</p>
+  </header>
+
+  <main>
+    <div class="boost-box">
+      <h2 id="boostTitle">✨ Loading...</h2>
+      <p id="boostContent"></p>
+      <button onclick="newBoost()">Give Me Another</button>
+    </div>
+  </main>
+
+  <script>
+    const boosts = [
+      { title: "Brain Teaser", content: "What has to be broken before you can use it? (Answer: An egg)" },
+      { title: "Did You Know?", content: "Honey never spoils. Archaeologists have found edible honey in ancient Egyptian tombs." },
+      { title: "Quote of the Day", content: "“The best way to predict the future is to invent it.” – Alan Kay" },
+      { title: "Quick Riddle", content: "I speak without a mouth and hear without ears. I have nobody, but I come alive with wind. What am I? (Answer: An echo)" },
+      { title: "Fun Fact", content: "Octopuses have three hearts and blue blood!" }
+    ];
+
+    function newBoost() {
+      const random = boosts[Math.floor(Math.random() * boosts.length)];
+      document.getElementById("boostTitle").innerText = random.title;
+      document.getElementById("boostContent").innerText = random.content;
+    }
+
+    window.onload = newBoost;
+  </script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .boost-box {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 20px;
+      margin: auto;
+      max-width: 500px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #00cec9;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00b894;
+    }
+  </style>
+</body>
+</html>
