@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vibe Nest | Mind Space</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>🧘 Mind Space</h1>
+    <p>Calm your mind, take a breath, and vibe with positivity 🕊️</p>
+  </header>
+
+  <main class="mindspace-content">
+    <section class="quote-section">
+      <h2>🌟 Daily Quote</h2>
+      <p id="quoteDisplay">Loading inspiration...</p>
+    </section>
+
+    <section class="breathing-guide">
+      <h2>💨 Breathe With Us</h2>
+      <div class="circle" id="breathCircle"></div>
+      <p id="breathText">Breathe In</p>
+    </section>
+  </main>
+
+  <script>
+    // Daily Quote
+    const quotes = [
+      "Take a deep breath. You're doing better than you think.",
+      "This too shall pass.",
+      "One day at a time. One step at a time.",
+      "Be kind to your mind.",
+      "You are enough, just as you are."
+    ];
+    document.getElementById("quoteDisplay").innerText = quotes[Math.floor(Math.random() * quotes.length)];
+
+    // Breathing Animation
+    const breathText = document.getElementById("breathText");
+    const breathCircle = document.getElementById("breathCircle");
+    let isInhale = true;
+
+    setInterval(() => {
+      isInhale = !isInhale;
+      breathText.textContent = isInhale ? "Breathe In" : "Breathe Out";
+      breathCircle.style.transform = isInhale ? "scale(1.5)" : "scale(1)";
+    }, 4000);
+  </script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .quote-section {
+      margin-bottom: 30px;
+      font-size: 1.2em;
+      background: #ffffff22;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .breathing-guide {
+      background: #ffffff22;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .circle {
+      margin: 20px auto;
+      width: 100px;
+      height: 100px;
+      background: #5e60ce;
+      border-radius: 50%;
+      transition: transform 4s ease-in-out;
+    }
+
+    #breathText {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+  </style>
+</body>
+</html>
